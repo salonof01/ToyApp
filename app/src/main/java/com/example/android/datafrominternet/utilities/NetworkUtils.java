@@ -46,6 +46,9 @@ public class NetworkUtils {
      *
      * @param githubSearchQuery The keyword that will be queried for.
      * @return The URL to use to query the weather server.
+     * This function take one String parameter which we will use in MainActivity
+     * URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery); and the text input from the user will be
+     * store here githubQuery = mSearchBoxEditText.getText().toString();
      */
     public static URL buildUrl(String githubSearchQuery) {
         // TODO (1) Fill in this method to build the proper Github query URL
