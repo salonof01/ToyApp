@@ -17,6 +17,7 @@ package android.example.com.visualizerpreferences;
  */
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.example.com.visualizerpreferences.AudioVisuals.AudioInputReader;
 import android.example.com.visualizerpreferences.AudioVisuals.VisualizerView;
@@ -25,7 +26,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
+
+import static android.example.com.visualizerpreferences.R.menu.visuazlizer_menu;
 
 public class VisualizerActivity extends AppCompatActivity {
 
@@ -124,5 +130,23 @@ public class VisualizerActivity extends AppCompatActivity {
     // be shown as an action, and orderInCategory should be 100
 
     // TODO (5) Add the menu to the menu bar
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.visuazlizer_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuId = item.getItemId();
+        if (menuId == R.id.action_settings){
+            Intent startSettinsActivity = new Intent(this,SettingsActivity.class);
+            startActivity(startSettinsActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     // TODO (6) When the "Settings" menu item is pressed, open SettingsActivity
 }
